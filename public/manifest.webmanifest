@@ -1,0 +1,12 @@
+{
+  "name": "Multi TV",
+  "short_name": "MultiTV",
+  "description": "Aynı anda birden fazla YouTube kanalını izleyin",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}

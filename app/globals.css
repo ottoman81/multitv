@@ -1,0 +1,365 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  color-scheme: dark;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0f17;
+  color: #f8fafc;
+}
+
+body {
+  line-height: 1.5;
+}
+
+.app-root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top, #111827 0%, #03050a 65%);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn,
+.primary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.icon-btn:hover,
+.primary-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.primary-btn {
+  font-weight: 600;
+}
+
+.grid-area {
+  flex: 1;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.youtube-loader {
+  margin: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.youtube-query {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.load-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+.load-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #fca5a5;
+  font-size: 12px;
+}
+
+.video-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 2px;
+  background: #000;
+}
+
+.video-item {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.video-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.channel-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.edit-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.edit-btn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.settings-panel {
+  position: relative;
+  z-index: 10;
+  width: min(100%, 360px);
+  height: 100%;
+  background: #0d111a;
+  color: #fff;
+  overflow-y: auto;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settings-header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.close-btn {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.settings-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-block label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toggle-btn,
+.grid-btn {
+  min-width: 46px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.grid-btn {
+  width: 46px;
+  height: 38px;
+  font-weight: 700;
+}
+
+.toggle-btn.active,
+.grid-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.channel-item {
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.channel-item.active {
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.8);
+}
+
+.channel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.channel-number {
+  min-width: 22px;
+  text-align: right;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.channel-input {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  font-size: 13px;
+}
+
+.channel-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.url-input {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.settings-footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn,
+.primary-btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.primary-btn {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+
